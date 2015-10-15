@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/snap.svg/dist/snap.svg-min.js"></script>
+</head>
+<body>
+<!--transformations-->
+<script>
+    var s=Snap(400,400);
+    var base = s.rect(50,100,100,75);
+    var roof = s.polygon(35,100,165,100,100,50);
+    var house = s.g(base,roof);
+    house .attr({
+        fill:"red",
+        stroke:"black"
+    });
+
+    var chomney = s.rect(65,50,15,30);
+    house.add(chomney);
+
+    //house.animate({transform:"r45,0,0"},1000);
+
+    //easing
+    base.animate({height:300},1000,function(){
+        house.animate({transform:"t200,0"},1000,mina.elastic,function(){
+            base.animate({height:75},1000);
+            //elastic/easein/easeout/easeinout
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #clock {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+    <script src="bower_components/snap.svg/dist/snap.svg-min.js"></script>
+</head>
+<body>
+<div id="clock"></div>
+<script>
+    var house = Snap("#icon-house");
+    Snap.load("icon-house.svg",function(data){
+        house.append(data);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #clock {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+    <script src="bower_components/snap.svg/dist/snap.svg-min.js"></script>
+</head>
+<body>
+<div id="clock"></div>
+<script>
+    var icon = Snap("#icon-house");
+    Snap.load("icon-house.svg",function(data){
+        icon.append(data);
+
+        var house =icon.select("#house");
+        house.attr({fill:"white"});
+
+        var bg =icon.select("#bg");
+        bg.attr({fill:"#2F6443"});
+
+        var ring =icon.select("#ring");
+        ring.attr({fill:"#A13E33"});
+
+        icon.hover(function(){
+            house.animate({transform:'s1.2,100,100'},1000,mina.easein);
+            ring.animate({transform:'s1.05,100,100'},1000,mina.easein);
+            bg.animate({opacity:'.5'},200);
+        });
+
+        icon.mouseout(function(){
+            house.animate({transform:'s1,100,100'},1000,mina.easein);
+            ring.animate({transform:'s1,100,100'},1000,mina.easein);
+            bg.animate({opacity:'1'},200);
+        });
+    });
+</script>
+</body>
+</html>
